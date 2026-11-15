@@ -1,0 +1,142 @@
+.about-page {
+  min-height: 100vh;
+  background: var(--site-page-background);
+  color: var(--site-text-color);
+  font-family: var(--site-font-family);
+}
+
+.about-intro,
+.about-values {
+  width: min(1120px, calc(100% - 48px));
+  margin: 0 auto;
+}
+
+.about-intro {
+  min-height: 520px;
+  display: grid;
+  grid-template-columns: minmax(0, 0.9fr) minmax(300px, 1.1fr);
+  align-items: center;
+  gap: clamp(32px, 7vw, 92px);
+  padding: 64px 0 76px;
+}
+
+.about-copy {
+  max-width: 470px;
+}
+
+.about-eyebrow {
+  margin: 0 0 18px;
+  color: #b3533d;
+  font-size: 0.78rem;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.about-copy h1 {
+  margin: 0;
+  max-width: 520px;
+  font-size: clamp(2.8rem, 6vw, 5rem);
+  line-height: 0.98;
+}
+
+.about-lede {
+  margin: 24px 0 28px;
+  max-width: 440px;
+  color: #5b6862;
+  font-size: 1.08rem;
+  line-height: 1.7;
+}
+
+.about-action {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  padding: 13px 18px;
+  background: #b3533d;
+  color: #fff;
+  font-weight: 700;
+  text-decoration: none;
+  transition: background-color 160ms ease, transform 160ms ease;
+}
+
+.about-action:hover {
+  background: #8f402f;
+  transform: translateY(-2px);
+}
+
+.about-image {
+  width: 100%;
+  height: 390px;
+  object-fit: cover;
+  border-radius: 4px;
+}
+
+.about-values {
+  padding: 48px 0 84px;
+  border-top: 1px solid #d9e0d9;
+}
+
+.about-section-heading {
+  max-width: 540px;
+  margin-bottom: 38px;
+}
+
+.about-section-heading h2 {
+  margin: 0;
+  font-size: clamp(2rem, 4vw, 3.2rem);
+  line-height: 1.08;
+}
+
+.about-value-list {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 32px;
+}
+
+.about-value-list article {
+  padding-top: 18px;
+  border-top: 2px solid #b3533d;
+}
+
+.about-value-number {
+  color: #b3533d;
+  font-size: 0.82rem;
+  font-weight: 700;
+}
+
+.about-value-list h3 {
+  margin: 16px 0 8px;
+  font-size: 1.25rem;
+}
+
+.about-value-list p {
+  margin: 0;
+  color: #5b6862;
+  line-height: 1.65;
+}
+
+@media (max-width: 700px) {
+  .about-intro,
+  .about-values {
+    width: min(100% - 36px, 540px);
+  }
+
+  .about-intro {
+    grid-template-columns: 1fr;
+    gap: 32px;
+    padding: 48px 0 56px;
+  }
+
+  .about-image {
+    height: min(68vw, 340px);
+  }
+
+  .about-values {
+    padding: 38px 0 60px;
+  }
+
+  .about-value-list {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+}
