@@ -20,14 +20,21 @@ const FeatureCard = () => {
   const [cities, setCities] = useState([]);
   const [properties, setProperties] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
-  const [loadError, setLoadError] = useState(false);
+  const [loadError, setLoadError] = useState("");
   const getCities = () => {
+    if (!baseurl) {
+      return;
+    }
+
     axios({
       method: "get",
       url: baseurl + "/properties/cities",
     })
       .then((res) => {
         console.log(res.data);
+        if (!Array.isArray(res.data)) {
+          throw new TypeError("Expected the cities API to return an array.");
+        }
         let temp = res.data?.map((type) => {
           return { label: type.city, value: type.city };
         });
@@ -35,21 +42,32 @@ const FeatureCard = () => {
       })
       .catch((e) => {
         console.log(e);
+        setCities([]);
       });
   };
   const getProperties = () => {
     setIsLoading(true);
-    setLoadError(false);
+    setLoadError("");
+    if (!baseurl) {
+      console.error("Property listings are unavailable because REACT_APP_BASE_URL is not configured.");
+      setLoadError("Property listings are unavailable because the API is not configured.");
+      setIsLoading(false);
+      return;
+    }
+
     axios({
       method: "get",
       url: baseurl + "/properties",
     })
       .then((res) => {
+        if (!Array.isArray(res.data)) {
+          throw new TypeError("Expected the properties API to return an array.");
+        }
         setProperties(res.data);
       })
       .catch((e) => {
         console.log(e);
-        setLoadError(true);
+        setLoadError("We couldn’t load the listings. Please try again in a moment.");
       })
       .finally(() => {
         setIsLoading(false);
@@ -58,18 +76,28 @@ const FeatureCard = () => {
 
   const searchHandler = () => {
     setIsLoading(true);
-    setLoadError(false);
+    setLoadError("");
+    if (!baseurl) {
+      console.error("Property search is unavailable because REACT_APP_BASE_URL is not configured.");
+      setLoadError("Property search is unavailable because the API is not configured.");
+      setIsLoading(false);
+      return;
+    }
+
     axios({
       method: "post",
       url: baseurl + "/properties/filter",
       data: { ...filters, minSize, maxSize, maxPrice, minPrice },
     })
       .then((res) => {
+        if (!Array.isArray(res.data)) {
+          throw new TypeError("Expected the property search API to return an array.");
+        }
         setProperties(res.data);
       })
       .catch((e) => {
         console.log(e);
-        setLoadError(true);
+        setLoadError("We couldn’t load the listings. Please try again in a moment.");
       })
       .finally(() => {
         setIsLoading(false);
@@ -90,12 +118,19 @@ const FeatureCard = () => {
   };
   const [propertyTypes, setPropertyTypes] = useState([]);
   const getPropertyTypes = () => {
+    if (!baseurl) {
+      return;
+    }
+
     axios({
       method: "get",
       url: baseurl + "/propertyTypes",
     })
       .then((res) => {
         console.log(res.data);
+        if (!Array.isArray(res.data)) {
+          throw new TypeError("Expected the property types API to return an array.");
+        }
         let temp = res.data?.map((type) => {
           return { label: type.title, value: type._id };
         });
@@ -103,6 +138,7 @@ const FeatureCard = () => {
       })
       .catch((e) => {
         console.log(e);
+        setPropertyTypes([]);
       });
   };
 
@@ -145,7 +181,7 @@ const FeatureCard = () => {
               {loadError ? (
                 <div className="property-message" role="alert">
                   <h3>We couldn’t load the listings.</h3>
-                  <p>Please try again in a moment.</p>
+                  <p>{loadError}</p>
                   <button type="button" onClick={getProperties}>Try again</button>
                 </div>
               ) : isLoading ? (
