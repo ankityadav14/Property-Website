@@ -99,3 +99,10 @@
     display: flex;
   }
 }
+
+@media (max-width: 520px) {
+  .navbar-logo-img {
+    width: min(180px, calc(100vw - 112px));
+    height: 40px;
+  }
+}
