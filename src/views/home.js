@@ -115,7 +115,7 @@ const Home = () => {
             </span>
           </div>
           <img
-            alt="image"
+            alt=""
             src="https://images.unsplash.com/photo-1472224371017-08207f84aaae?crop=entropy&amp;cs=tinysrgb&amp;fit=max&amp;fm=jpg&amp;ixid=M3w5MTMyMXwwfDF8cmFuZG9tfHx8fHx8fHx8MTY5OTQ3NjEzN3w&amp;ixlib=rb-4.0.3&amp;q=80&amp;w=400"
             className="home-details-image hidden"
           />

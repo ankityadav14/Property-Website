@@ -8,7 +8,7 @@ import MapView from "../components/MapView";
 const baseurl = process.env.REACT_APP_BASE_URL;
 
 export default function PropertyDetails() {
-    const [searchParams, setSearchParams] = useSearchParams();
+    const [searchParams] = useSearchParams();
     const propertyId = searchParams.get('id')
     const [propertyDetails, setPropertyDetails] = useState({});
     const [propertyTypes, setPropertyTypes] = useState([]);
@@ -41,7 +41,7 @@ export default function PropertyDetails() {
     useEffect(() => {
         getPropertyTypes()
         getPropertyDetails(propertyId)
-    }, [])
+    }, [propertyId])
     return (
         <>
           <Navbar />
@@ -63,7 +63,7 @@ export default function PropertyDetails() {
                                             <li
                                                 data-target="#carouselExampleIndicators"
                                                 data-slide-to={i}
-                                                className={i == 0 ? "active" : ''}
+                                                className={i === 0 ? "active" : ''}
                                             />
                                         )
                                     })
@@ -73,7 +73,7 @@ export default function PropertyDetails() {
                                 {
                                     propertyDetails?.photos?.map((url, i) => {
                                         return (
-                                            <div className={i == 0 ? "carousel-item active" : 'carousel-item'}>
+                                            <div className={i === 0 ? "carousel-item active" : 'carousel-item'}>
                                                 <img
                                                     className="d-block w-100"
                                                     src={baseurl + '/' + url}
@@ -109,7 +109,7 @@ export default function PropertyDetails() {
                         <h2>City:{propertyDetails?.location?.city || ''}</h2>
                     }
                     <h2>Price: {propertyDetails.price}</h2>
-                    <p>{propertyDetails?.propertyType && propertyTypes?.length > 0 && propertyTypes.find((type) => type._id == propertyDetails?.propertyType)?.title}</p>
+                    <p>{propertyDetails?.propertyType && propertyTypes?.length > 0 && propertyTypes.find((type) => type._id === propertyDetails?.propertyType)?.title}</p>
                     <p>Size: {propertyDetails.Size}</p>
                     <p>Bedrooms: {propertyDetails.Bedrooms}</p>
                     <p>Bathrooms: {propertyDetails.Bathrooms}</p>
