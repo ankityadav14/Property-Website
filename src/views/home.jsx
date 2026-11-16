@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { useEffect } from 'react';
 import FeatureCard from '../components/feature-card'
 import Navbar from '../components/Navbar';
 import GalleryCard3 from '../components/gallery-card3'

@@ -23,7 +23,7 @@ const Navbar = () => {
         <NavLink to="/properties" className={({ isActive }) => isActive ? 'active' : ''}>Properties</NavLink>
         <NavLink to="/addproperty" className={({ isActive }) => isActive ? 'active' : ''}>Add Property</NavLink>
          <NavLink to="/contact" className={({ isActive }) => isActive ? 'active' : ''}>Contact Us</NavLink>
-        <NavLink to="/login" className={({ isActive }) => isActive ? 'active' : ''}>Login / Sign Up</NavLink>
+        <NavLink to="/login" className={({ isActive }) => isActive ? 'active' : ''}>Login/Sign Up</NavLink>
       </div>
     </nav>
     <div className="navbar-offset" aria-hidden="true" />

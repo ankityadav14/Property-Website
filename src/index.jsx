@@ -4,7 +4,7 @@ import { Route, Routes, BrowserRouter } from "react-router-dom";
 
 import './style.css'
 import './animation.css'
-import Home from './views/home'
+import Home from './views/home.jsx'
 import Login from './views/Login'
 import Properties from './views/Properties'
 import AddProperty from './views/AddProperty'
