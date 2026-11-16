@@ -308,7 +308,7 @@ const Home = () => {
           <div className="home-separator"></div>
           <div className="home-container33">
             <span className="home-text61">
-              ©2023 RealSpace, All Rights Reserved. Develped by Ankit
+              ©2026 RealSpace, All Rights Reserved. Develped by Ankit Yadav
             </span>
             <div className="home-icon-group1">
               <a href="https://twitter.com/un" target="_blank" rel="noopener noreferrer" aria-label="Twitter">
