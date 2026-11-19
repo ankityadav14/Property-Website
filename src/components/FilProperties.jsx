@@ -49,7 +49,7 @@ export default function FilProperties({
             id="city"
             type="search"
             list="property-city-options"
-            placeholder="Any city"
+            placeholder="Enter City Name"
             autoComplete="off"
             value={filters.city}
             onChange={(event) => setField("city", event.target.value)}
