@@ -67,7 +67,13 @@ export default function FilProperties({
             value={filters.propertyType}
             onChange={(event) => setField("propertyType", event.target.value)}
           >
-            <option value="">Any property type</option>
+            <option value="">All Properties</option>
+            <option value="apartment">Apartment</option>
+            <option value="house">House</option>
+            <option value="townhouse">Townhouse</option>
+            <option value="villa">Villa</option>
+            <option value="studio">Studio</option>
+            <option value="duplex">Duplex</option>
             {propertyTypes?.map((propertyType) => (
               <option key={propertyType.value} value={propertyType.value}>{propertyType.label}</option>
             ))}
