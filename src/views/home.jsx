@@ -120,6 +120,9 @@ const Home = () => {
                 <label htmlFor="home-property-type">Property type
                   <select id="home-property-type" value={propertyType} onChange={(event) => setPropertyType(event.target.value)}>
                     <option value="">Any type</option>
+                    <option value="apartment">Apartment</option>
+                    <option value="house">House</option>
+                    <option value="townhouse">Townhouse</option>
                     {propertyTypes.map((type) => <option value={type.id} key={type.id}>{type.title}</option>)}
                   </select>
                 </label>
