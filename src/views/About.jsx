@@ -17,17 +17,22 @@ const About = () => (
           </p>
           <Link className="about-action" to="/properties">Explore properties <span aria-hidden="true">&rarr;</span></Link>
         </div>
-        <img
-          className="about-image"
-          src="/imgs/cardImgs/card8.jpg"
-          alt="A welcoming home surrounded by greenery"
-        />
+        <figure className="about-visual">
+          <img
+            className="about-image"
+            src="/imgs/cardImgs/card8.jpg"
+            alt="A bright living room opening onto a green outdoor space"
+            decoding="async"
+          />
+          <figcaption><span /> A place to feel at home</figcaption>
+        </figure>
       </section>
 
       <section className="about-values" aria-labelledby="about-values-heading">
         <div className="about-section-heading">
           <p className="about-eyebrow">What matters here</p>
           <h2 id="about-values-heading">A more considered rental search.</h2>
+          <p>Good decisions start with a clearer picture of the place and the people behind it.</p>
         </div>
         <div className="about-value-list">
           <article>
@@ -45,6 +50,17 @@ const About = () => (
             <h3>Built for both sides</h3>
             <p>Renters can discover a home, while owners can share their property with new audiences.</p>
           </article>
+        </div>
+      </section>
+
+      <section className="about-next-step" aria-labelledby="about-next-step-heading">
+        <div>
+          <p className="about-eyebrow">Start wherever you are</p>
+          <h2 id="about-next-step-heading">Your next place starts with a search.</h2>
+        </div>
+        <div className="about-next-step-actions">
+          <Link className="about-action" to="/properties">Browse properties <span aria-hidden="true">&rarr;</span></Link>
+          <Link className="about-secondary-action" to="/addproperty">List a property <span aria-hidden="true">&nearr;</span></Link>
         </div>
       </section>
     </main>

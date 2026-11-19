@@ -44,6 +44,15 @@
   --dl-space-space-oneandhalfunits: 24px;
 }
 
+.route-loading {
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  background: #f7f8f5;
+  color: #53675a;
+  font: 600 0.9rem var(--site-font-family);
+}
+
 .button {
   color: var(--dl-color-gray-black);
   display: inline-block;

@@ -1,0 +1,138 @@
+.properties-map-layout {
+  min-height: 430px;
+  display: grid;
+  grid-template-columns: minmax(190px, 250px) minmax(0, 1fr);
+  overflow: hidden;
+  border: 1px solid #e1e7e1;
+  border-radius: 12px;
+  background: #fff;
+}
+
+.properties-map-list {
+  max-height: 560px;
+  overflow-y: auto;
+  border-right: 1px solid #e7ece7;
+}
+
+.properties-map-list-item {
+  width: 100%;
+  display: grid;
+  gap: 5px;
+  padding: 16px;
+  border: 0;
+  border-bottom: 1px solid #edf0ec;
+  background: #fff;
+  color: #263a2e;
+  font: inherit;
+  text-align: left;
+  cursor: pointer;
+}
+
+.properties-map-list-item:hover,
+.properties-map-list-item.selected {
+  background: #f0f5f0;
+}
+
+.properties-map-list-item.selected {
+  box-shadow: inset 3px 0 #397052;
+}
+
+.properties-map-list-item span {
+  font-size: .85rem;
+  font-weight: 700;
+}
+
+.properties-map-list-item small {
+  color: #748178;
+  font-size: .75rem;
+}
+
+.properties-map-frame {
+  min-width: 0;
+  min-height: 430px;
+  position: relative;
+  background: #edf2eb;
+}
+
+.properties-map-frame iframe {
+  width: 100%;
+  height: 100%;
+  min-height: 430px;
+  display: block;
+  border: 0;
+}
+
+.properties-map-open {
+  display: inline-flex;
+  position: absolute;
+  right: 12px;
+  bottom: 12px;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 13px;
+  border: 1px solid #e1e7e1;
+  border-radius: 5px;
+  background: #fff;
+  box-shadow: 0 3px 10px rgba(24, 43, 33, .1);
+  color: #285d43;
+  font-size: .78rem;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.properties-map-empty {
+  min-height: 300px;
+  display: grid;
+  place-content: center;
+  justify-items: center;
+  padding: 30px;
+  border: 1px solid #e1e7e1;
+  border-radius: 12px;
+  background: #fff;
+  text-align: center;
+}
+
+.properties-map-empty > span {
+  color: #6d8b73;
+  font-size: 1.8rem;
+}
+
+.properties-map-empty h3 {
+  margin: 12px 0 4px;
+  color: #25372c;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 1.35rem;
+  font-weight: 400;
+}
+
+.properties-map-empty p {
+  max-width: 360px;
+  margin: 0;
+  color: #748178;
+  font-size: .86rem;
+  line-height: 1.6;
+}
+
+@media (max-width: 680px) {
+  .properties-map-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .properties-map-list {
+    max-height: 180px;
+    display: flex;
+    overflow: auto;
+    border-right: 0;
+    border-bottom: 1px solid #e7ece7;
+  }
+
+  .properties-map-list-item {
+    min-width: 180px;
+    border-right: 1px solid #edf0ec;
+    border-bottom: 0;
+  }
+
+  .properties-map-list-item.selected {
+    box-shadow: inset 0 -3px #397052;
+  }
+}
