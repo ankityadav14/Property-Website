@@ -73,7 +73,7 @@ const Navbar = () => {
       </button>
       <div className={`navbar-links${isMenuOpen ? ' is-open' : ''}`} id="primary-navigation-links">
         <NavLink to="/" onClick={closeMenu} className={({ isActive }) => isActive ? 'active' : ''}>Home</NavLink>
-        <NavLink to="/about" onClick={closeMenu} className={({ isActive }) => isActive ? 'active' : ''}>About Us</NavLink>
+        <NavLink to="/about" onClick={closeMenu} className={({ isActive }) => isActive ? 'active' : ''}>About</NavLink>
         <div className={`navbar-dropdown${isPropertiesOpen ? ' is-open' : ''}`} ref={propertiesMenuRef}>
           <button
             type="button"
